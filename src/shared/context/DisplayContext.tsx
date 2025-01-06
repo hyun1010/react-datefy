@@ -5,7 +5,7 @@ interface DisplayContextType {
   toggleDisplay: () => void;
 }
 
-const DisplayContext = createContext<DisplayContextType | undefined>(undefined);
+export const DisplayContext = createContext<DisplayContextType | undefined>(undefined);
 
 interface DisplayProviderProps {
   children: ReactNode;
