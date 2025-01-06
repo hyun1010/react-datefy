@@ -1,0 +1,24 @@
+{
+  "extends": [
+    "eslint:recommended",
+    "plugin:react/recommended", // React 관련 규칙
+    "plugin:prettier/recommended" // Prettier 규칙 적용
+  ],
+  "parserOptions": {
+    "ecmaVersion": 2020,
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "jsx": true
+    }
+  },
+  "plugins": ["react", "vue"],
+  "rules": {
+    "prettier/prettier": "error",
+    "react/react-in-jsx-scope": "on"
+  },
+  "settings": {
+    "react": {
+      "version": "detect" // React 버전 자동 감지
+    }
+  }
+}

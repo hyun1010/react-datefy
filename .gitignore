@@ -1,0 +1,12 @@
+.idea
+package-lock.json
+
+logs
+*.log
+npm-debug.log*
+
+*.iml
+.idea
+.tscache
+node_modules/
+dist
