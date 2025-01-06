@@ -6,3 +6,4 @@ rollup.config.js
 
 .idea
 node_modules
+*.tgz

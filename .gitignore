@@ -10,3 +10,4 @@ npm-debug.log*
 .tscache
 node_modules/
 dist
+*.tgz
