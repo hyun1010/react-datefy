@@ -1,7 +1,8 @@
-import resolve from '@rollup/plugin-node-resolve';
-import commonjs from '@rollup/plugin-commonjs';
 import babel from '@rollup/plugin-babel';
+import commonjs from '@rollup/plugin-commonjs';
+import resolve from '@rollup/plugin-node-resolve';
 import typescript from '@rollup/plugin-typescript';
+import dts from 'rollup-plugin-dts';
 import { terser } from 'rollup-plugin-terser';
 
 export default [
@@ -25,6 +26,13 @@ export default [
         presets: ['@babel/preset-env', '@babel/preset-react'],
       }),
       terser(),
+    ],
+  },
+  {
+    input: 'dist/types/index.d.ts',
+    output: [{ file: 'dist/index.d.ts', format: 'esm' }],
+    plugins: [
+      dts(), // 타입스크립트 타입 정의를 번들링 해줍니다.
     ],
   },
 ];
