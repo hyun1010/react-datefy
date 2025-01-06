@@ -1,4 +1,4 @@
-.datepicker-input {
+.date-input {
   width: 100%;
   padding: 10px;
   font-size: 14px;
@@ -6,9 +6,9 @@
   border-radius: 4px;
   background-color: #fff;
   cursor: pointer;
-}
 
-.datepicker-input:focus {
-  outline: none;
-  border-color: #4caf50;
+  &:focus {
+    outline: none;
+    border-color: #b3cce8;
+  }
 }
