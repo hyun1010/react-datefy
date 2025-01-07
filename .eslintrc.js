@@ -31,4 +31,18 @@ module.exports = {
     },
   },
   ignorePatterns: ['dist/', 'node_modules/'],
+  overrides: [
+    {
+      files: ['*.ts'],
+      rules: {
+        semi: ['error', 'never'],
+      },
+    },
+    {
+      files: ['*.tsx'],
+      rules: {
+        semi: ['error', 'always'], // .tsx 파일에서 세미콜론 강제
+      },
+    },
+  ],
 };
