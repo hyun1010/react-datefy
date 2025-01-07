@@ -22,7 +22,6 @@ module.exports = {
     },
     ecmaVersion: 'latest',
     sourceType: 'module',
-    parser: '@babel/eslint-parser',
   },
   plugins: ['react', 'react-hooks', 'prettier'],
   rules: {
@@ -40,6 +39,16 @@ module.exports = {
     {
       files: ['*.ts', '*.tsx'],
       rules: {
+        'no-undef': 'off',
+      },
+    },
+    {
+      files: ['rollup.config.js'],
+      env: {
+        node: true,
+      },
+      rules: {
+        'prettier/prettier': 'off',
         'no-undef': 'off',
       },
     },
