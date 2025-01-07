@@ -19,9 +19,8 @@ module.exports = {
     'plugin:react-hooks/recommended',
     'prettier',
   ],
-  plugins: ['react', 'react-hooks', 'prettier', '@typescript-eslint'], // 플러그인 추가
+  plugins: ['react', 'react-hooks', 'prettier'], // 플러그인 추가
   rules: {
-    'prettier/prettier': 'error',
     'react/react-in-jsx-scope': 'off',
     'react/jsx-uses-react': 'off',
   },
