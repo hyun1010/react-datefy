@@ -1,4 +1,3 @@
-import React from 'react';
 import styles from './input.module.scss';
 import { ValueType } from '../../../shared/config';
 import { useDisplayContext } from '../../context/DisplayContext';
