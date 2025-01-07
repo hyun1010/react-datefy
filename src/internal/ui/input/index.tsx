@@ -1,7 +1,7 @@
-import React, { useContext } from 'react';
-import { ValueType } from '../../shared/config';
-import { DisplayContext } from '../../shared/context/DisplayContext';
+import React from 'react';
 import styles from './input.module.scss';
+import { ValueType } from '../../../shared/config';
+import { useDisplayContext } from '../../context/DisplayContext';
 
 interface InputProps {
   /**
@@ -11,30 +11,18 @@ interface InputProps {
    */
   value: ValueType;
   /**
-   *
-   */
-  onClick: () => void;
-  /**
    * The placeholder text for the input field.
    * @default 'Select a date.'
    */
   placeholder?: string;
 }
 
-export const Input: React.FC<InputProps> = ({
-  value,
-  onClick,
-  placeholder,
-}) => {
+export const Input: React.FC<InputProps> = ({ value, placeholder }) => {
+  const { toggleDisplay } = useDisplayContext();
   const inputValue = value?.toLocaleDateString() || '';
-  // DisplayContext가 사용되지 않으면 에러를 방지하기 위해 조건 추가
-  const context = useContext(DisplayContext);
 
   const handleClick = () => {
-    if (context && context.toggleDisplay) {
-      context.toggleDisplay();
-    }
-    onClick?.();
+    toggleDisplay();
   };
 
   return (
