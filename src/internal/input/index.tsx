@@ -1,7 +1,8 @@
-import { useContext } from 'react';
-import { ValueType } from '../shared/config';
-import { DisplayContext } from '../shared/context/DisplayContext';
+import React, { useContext } from 'react';
+import { ValueType } from '../../shared/config';
+import { DisplayContext } from '../../shared/context/DisplayContext';
 import styles from './input.module.scss';
+
 interface InputProps {
   /**
    * The value to be displayed in the date picker input.
