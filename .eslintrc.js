@@ -21,7 +21,6 @@ module.exports = {
   ],
   plugins: ['react', 'react-hooks', 'prettier', '@typescript-eslint'], // 플러그인 추가
   rules: {
-    semi: 'error',
     'prettier/prettier': 'error',
     'react/react-in-jsx-scope': 'off',
     'react/jsx-uses-react': 'off',
