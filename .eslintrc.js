@@ -1,47 +1,46 @@
-// .eslintrc.js
 module.exports = {
-  parser: '@typescript-eslint/parser', // TypeScript 파서 사용
   env: {
+    browser: true,
+    commonjs: true,
+    es6: true,
     node: true,
-    es2020: true,
-  },
-  parserOptions: {
-    ecmaVersion: 2020,
-    sourceType: 'module', // 모듈 형식으로 지정
-    ecmaFeatures: {
-      jsx: true,
-    },
   },
   extends: [
     'eslint:recommended',
     'plugin:react/recommended',
     'plugin:prettier/recommended',
-    'plugin:react-hooks/recommended',
     'prettier',
   ],
-  plugins: ['react', 'react-hooks', 'prettier'], // 플러그인 추가
-  rules: {
-    semi: 'error',
-    'react/react-in-jsx-scope': 'off',
-    'react/jsx-uses-react': 'off',
-  },
   settings: {
     react: {
       version: 'detect',
     },
   },
-  ignorePatterns: ['dist/', 'node_modules/'],
+  parserOptions: {
+    ecmaFeatures: {
+      jsx: true,
+    },
+    ecmaVersion: 'latest',
+    sourceType: 'module',
+    parser: '@babel/eslint-parser',
+  },
+  plugins: ['react', 'react-hooks', 'prettier'],
+  rules: {
+    'react/react-in-jsx-scope': 0,
+    'react/prefer-stateless-function': 0,
+    'react/jsx-filename-extension': 0,
+    'react/jsx-one-expression-per-line': 0,
+    'no-nested-ternary': 0,
+    'no-unused-vars': 'off',
+    'no-console': 'off',
+    'react/jsx-props-no-spreading': 'off',
+    'prettier/prettier': ['error'],
+  },
   overrides: [
     {
-      files: ['*.ts'],
+      files: ['*.ts', '*.tsx'],
       rules: {
-        semi: ['error', 'never'],
-      },
-    },
-    {
-      files: ['*.tsx'],
-      rules: {
-        semi: ['error', 'always'], // .tsx 파일에서 세미콜론 강제
+        'no-undef': 'off',
       },
     },
   ],
