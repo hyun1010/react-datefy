@@ -1,8 +1,12 @@
 {
   "extends": [
     "eslint:recommended",
-    "plugin:react/recommended", // React 관련 규칙
-    "plugin:prettier/recommended" // Prettier 규칙 적용
+    "plugin:@typescript-eslint/recommended",
+    "plugin:react/recommended",
+    "plugin:prettier/recommended",
+    "plugin:react-hooks/recommended",
+    "plugin:import/recommended",
+    "prettier"
   ],
   "parserOptions": {
     "ecmaVersion": 2020,
@@ -11,14 +15,18 @@
       "jsx": true
     }
   },
-  "plugins": ["react"],
+  "plugins": ["react", "react-hooks", "prettier", "import"],
   "rules": {
+    "semi": "error",
     "prettier/prettier": "error",
-    "react/react-in-jsx-scope": "on"
+    "react/react-in-jsx-scope": "off",
+    "react/jsx-uses-react": "off"
   },
   "settings": {
     "react": {
       "version": "detect" // React 버전 자동 감지
     }
-  }
+  },
+  "ignorePatterns": ["dist/", "node_modules/"]
+  
 }
