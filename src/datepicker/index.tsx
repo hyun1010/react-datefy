@@ -1,3 +1,3 @@
-export default function Datepicker() {
+export default function DatePicker() {
   return <div>React Datepickerzzzz</div>;
 }
