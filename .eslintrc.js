@@ -21,6 +21,7 @@ module.exports = {
   ],
   plugins: ['react', 'react-hooks', 'prettier'], // 플러그인 추가
   rules: {
+    semi: 'error',
     'react/react-in-jsx-scope': 'off',
     'react/jsx-uses-react': 'off',
   },
