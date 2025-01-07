@@ -1,14 +1,22 @@
-.date-input {
+@import '../../../shared/style/mixins';
+
+.datepicker-input {
   width: 100%;
-  padding: 10px;
+  max-width: 300px;
+  padding: 8px;
   font-size: 14px;
-  border: 1px solid #ccc;
   border-radius: 4px;
-  background-color: #fff;
   cursor: pointer;
+
+  &[data-theme='light'] {
+    @include datepicker-theme(light);
+  }
+
+  &[data-theme='dark'] {
+    @include datepicker-theme(dark);
+  }
 
   &:focus {
     outline: none;
-    border-color: #b3cce8;
   }
 }

@@ -1,4 +1,5 @@
 // _mixins.scss
+@import './variables';
 @mixin datepicker-theme($theme) {
   @if $theme == light {
     background-color: $datepicker__background-color-light;

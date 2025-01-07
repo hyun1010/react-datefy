@@ -1,32 +1,19 @@
 import styles from './input.module.scss';
-import { ValueType } from '../../../shared/config';
-import { useDisplayContext } from '../../context/DisplayContext';
+import { BaseProps } from '../../config';
+import { useBaseContext } from '../../context';
 
-interface InputProps {
-  /**
-   * The value to be displayed in the date picker input.
-   * @example new Date()
-   * @example new Date(2025, 0, 1)
-   */
-  value: ValueType;
-  /**
-   * The placeholder text for the input field.
-   * @default 'Select a date.'
-   */
-  placeholder?: string;
-}
-
-export const Input: React.FC<InputProps> = ({ value, placeholder }) => {
-  const { toggleDisplay } = useDisplayContext();
+export default function Input({ value, placeholder }: BaseProps) {
+  const { theme, toggleIsOpen } = useBaseContext();
   const inputValue = value?.toLocaleDateString() || '';
 
   const handleClick = () => {
-    toggleDisplay();
+    toggleIsOpen();
   };
 
   return (
     <input
-      className={styles['date-input']}
+      data-theme={theme}
+      className={styles['datepicker-input']}
       type="text"
       value={inputValue}
       onClick={handleClick}
@@ -34,4 +21,4 @@ export const Input: React.FC<InputProps> = ({ value, placeholder }) => {
       readOnly
     />
   );
-};
+}
