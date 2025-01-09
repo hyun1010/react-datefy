@@ -1,10 +1,10 @@
-import { DateValueType, ThemeType } from '../../shared/config';
+import { DateValueType, ModeType } from './type';
 
 export interface BaseProps {
   /**
    * @default 'light'
    */
-  theme?: ThemeType;
+  mode?: ModeType;
   /**
    * The value to be displayed in the date picker input.
    * @example new Date()

@@ -1,2 +1,2 @@
-export type { DateValueType, ThemeType } from './shared/config';
-export { default as DatePicker } from './datepicker';
+export type { DateValueType, ModeType } from './shared/types';
+export { default } from './components/DatePicker';

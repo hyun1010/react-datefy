@@ -1,4 +1,4 @@
-@import '../../../shared/style/mixins';
+@import '../../shared/styles/mixins';
 
 .datepicker-input {
   width: 100%;
@@ -8,11 +8,11 @@
   border-radius: 4px;
   cursor: pointer;
 
-  &[data-theme='light'] {
+  &[data-mode='light'] {
     @include datepicker-theme(light);
   }
 
-  &[data-theme='dark'] {
+  &[data-mode='dark'] {
     @include datepicker-theme(dark);
   }
 
