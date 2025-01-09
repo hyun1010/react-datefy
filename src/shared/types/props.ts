@@ -1,10 +1,11 @@
-import { DateValueType, ModeType } from './type';
+import { DateValueType, localeTypes, ModeType } from './type';
 
 export interface BaseProps {
   /**
    * @default 'light'
    */
   mode?: ModeType;
+  locale?: localeTypes;
   /**
    * The value to be displayed in the date picker input.
    * @example new Date()

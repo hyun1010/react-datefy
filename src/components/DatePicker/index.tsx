@@ -4,6 +4,7 @@ import { BaseProps } from '../../shared/types/props';
 
 export default function DatePicker({
   mode = 'light',
+  locale = 'en',
   value,
   placeholder,
 }: BaseProps) {
@@ -18,7 +19,7 @@ export default function DatePicker({
         placeholder={placeholder}
         onClick={toggleCalendar}
       />
-      {isOpen && <Calendar mode={mode} />}
+      {isOpen && <Calendar mode={mode} locale={locale} />}
     </div>
   );
 }
