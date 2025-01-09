@@ -1,30 +1,82 @@
+@import '../../shared/styles/mixins';
 .datepicker-calendar {
   position: absolute;
   z-index: 10;
-  margin-top: 0.25rem; // mt-1
-  padding: 0.5rem; // p-2
-  border: 1px solid #d1d5db; // border-gray-300
-  background-color: #ffffff; // bg-white
-  border-radius: 0.5rem; // rounded-lg
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1); // shadow-lg
+  margin-top: 0.25rem;
+  padding: 0.5rem;
+  border: 1px solid #d1d5db;
+  background-color: #ffffff;
+  border-radius: 0.5rem;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+
+  &[data-mode='light'] {
+    @include datepicker-theme(light);
+  }
+
+  &[data-mode='dark'] {
+    @include datepicker-theme(dark);
+  }
+
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+
+    button {
+      background: none;
+      border: none;
+      font-size: 1rem;
+      cursor: pointer;
+      padding: 0.25rem 0.5rem;
+      border-radius: 0.25rem;
+      transition: background-color 0.2s;
+
+      &:hover {
+        background-color: #f3f4f6;
+      }
+    }
+
+    span {
+      font-size: 1.125rem;
+    }
+  }
 
   .grid {
     display: grid;
-    grid-template-columns: repeat(7, 1fr); // grid-cols-7
-    gap: 0.25rem; // gap-1
+    grid-template-columns: repeat(7, 1fr);
+    gap: 0.25rem;
   }
 
   .day-button {
-    width: 2rem; // w-8
-    height: 2rem; // h-8
-    border-radius: 9999px; // rounded-full
+    width: 2rem;
+    height: 2rem;
+    border-radius: 9999px;
     display: flex;
     align-items: center;
     justify-content: center;
     transition: background-color 0.2s;
 
     &:hover {
-      background-color: #e5e7eb; // hover:bg-gray-200
+      background-color: #e5e7eb;
     }
+  }
+
+  .weekdays {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+  }
+
+  .weekday {
+    text-align: center;
+  }
+
+  .empty-day {
+    // 빈 날짜를 위한 스타일 (보통 border나 width를 사용해 공간을 차지하게 합니다)
+    width: 2rem;
+    height: 2rem;
   }
 }

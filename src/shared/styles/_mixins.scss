@@ -15,6 +15,20 @@
         color: white;
       }
     }
+
+    .header {
+      button {
+        &:hover {
+          background-color: #f3f4f6;
+        }
+      }
+    }
+
+    .day-button {
+      &:hover {
+        background-color: #e5e7eb;
+      }
+    }
   }
 
   @if $theme == dark {
@@ -29,6 +43,20 @@
       .selected {
         background-color: $datepicker__selected-color-dark;
         color: white;
+      }
+    }
+
+    .header {
+      button {
+        &:hover {
+          background-color: #444444;
+        }
+      }
+    }
+
+    .day-button {
+      &:hover {
+        background-color: #555555;
       }
     }
   }

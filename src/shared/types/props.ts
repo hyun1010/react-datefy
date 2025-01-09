@@ -10,7 +10,7 @@ export interface BaseProps {
    * @example new Date()
    * @example new Date(2025, 0, 1)
    */
-  value: DateValueType;
+  value?: DateValueType;
   /**
    * The placeholder text for the input field.
    * @default 'Select a date.'

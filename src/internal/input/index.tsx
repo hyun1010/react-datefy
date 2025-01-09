@@ -11,7 +11,7 @@ export default function Input({
   placeholder,
   onClick,
 }: InputProps) {
-  const inputValue = formatDate(value, 'yyyy-mm-dd');
+  const inputValue = formatDate(value || null, 'yyyy-mm-dd');
 
   return (
     <input

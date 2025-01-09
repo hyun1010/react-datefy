@@ -18,7 +18,7 @@ export default function DatePicker({
         placeholder={placeholder}
         onClick={toggleCalendar}
       />
-      {isOpen && <Calendar />}
+      {isOpen && <Calendar mode={mode} />}
     </div>
   );
 }
