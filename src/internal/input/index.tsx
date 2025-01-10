@@ -1,17 +1,19 @@
 import { BaseProps } from '../../shared/types/props';
-import { formatDate } from '../../shared/utils';
+import { setFormatDate } from '../../shared/utils';
 import styles from './input.module.scss';
 
-interface InputProps extends BaseProps {
+export interface InputProps extends BaseProps {
   onClick?: () => void;
+  placeholder?: string;
 }
 export default function Input({
   mode,
   value,
   placeholder,
+  formatDate,
   onClick,
 }: InputProps) {
-  const inputValue = formatDate(value || null, 'yyyy-mm-dd');
+  const inputValue = setFormatDate(value || null, formatDate);
 
   return (
     <input
