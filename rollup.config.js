@@ -5,6 +5,7 @@ import dts from 'rollup-plugin-dts';
 import peerDepsExternal from 'rollup-plugin-peer-deps-external';
 import postcss from 'rollup-plugin-postcss';
 import { terser } from 'rollup-plugin-terser';
+import json from '@rollup/plugin-json'; // ✅ 추가
 
 export default [
   {
@@ -14,12 +15,14 @@ export default [
       format: 'es',
       sourcemap: true,
       exports: 'named',
+      inlineDynamicImports: true, // 동적 import를 하나의 번들로 묶음
     },
     plugins: [
       peerDepsExternal(),
       resolve(),
       commonjs(),
       typescript(),
+      json(),
       postcss({
         modules: true,
         use: ['sass'],

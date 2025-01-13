@@ -3,9 +3,9 @@ import { useState, useCallback } from 'react';
 export const useCalendarToggle = (initialState: boolean = false) => {
   const [isOpen, setIsOpen] = useState<boolean>(initialState);
 
-  const onOpenCalendar = useCallback(() => {
-    setIsOpen(true);
-  }, []);
+  const onToggleCalendar = () => {
+    setIsOpen(!isOpen);
+  };
 
   const onCloseCalendar = useCallback(() => {
     setIsOpen(false);
@@ -13,7 +13,7 @@ export const useCalendarToggle = (initialState: boolean = false) => {
 
   return {
     isOpen,
-    onOpenCalendar,
+    onToggleCalendar,
     onCloseCalendar,
   };
 };

@@ -13,7 +13,7 @@ export default function Input({
   formatDate,
   onClick,
 }: InputProps) {
-  const inputValue = setFormatDate(value || null, formatDate);
+  const inputValue = setFormatDate(value, formatDate);
 
   return (
     <input

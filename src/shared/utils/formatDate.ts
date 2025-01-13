@@ -1,6 +1,9 @@
-import { FormatDateType } from '../types';
+import { DateValueType, FormatDateType } from '../types';
 
-export function setFormatDate(date: Date | null, format: FormatDateType) {
+export function setFormatDate(
+  date: DateValueType = new Date(),
+  format: FormatDateType = 'yyyy-mm-dd'
+) {
   if (!date) return '';
 
   const year = date.getFullYear();
@@ -13,5 +16,5 @@ export function setFormatDate(date: Date | null, format: FormatDateType) {
     'yyyy/mm/dd': `${year}/${month}/${day}`,
   };
 
-  return formatMap[format] || formatMap['yyyy.mm.dd'];
+  return formatMap[format];
 }

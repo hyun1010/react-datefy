@@ -7,13 +7,12 @@ interface DatePickerProps extends InputProps {
 }
 
 export default function DatePicker(props: DatePickerProps) {
-  const { mode, locale, formatDate, value, placeholder, ...restProps } =
+  const { mode, formatDate, value, placeholder, ...restProps } =
     createProps(props);
 
   const renderInputProps = {
     ...restProps,
     mode,
-    locale,
     formatDate,
     value,
     placeholder,
@@ -21,17 +20,16 @@ export default function DatePicker(props: DatePickerProps) {
 
   const renderCalendarProps = {
     mode,
-    locale,
     value,
     formatDate,
   };
 
-  const { isOpen, onOpenCalendar, onCloseCalendar } = useCalendarToggle();
+  const { isOpen, onToggleCalendar, onCloseCalendar } = useCalendarToggle();
   const calendarRef = useClickOutside(onCloseCalendar);
 
   return (
     <div className="relative" ref={calendarRef}>
-      <Input {...renderInputProps} onClick={onOpenCalendar} />
+      <Input {...renderInputProps} onClick={onToggleCalendar} />
       {isOpen && <Calendar {...renderCalendarProps} />}
     </div>
   );
