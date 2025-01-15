@@ -1,21 +1,14 @@
 import { useEffect, useState } from 'react';
-import { Calendar, Input } from '../../internal';
-import { useCalendarToggle, useClickOutside } from '../../shared/hook';
-import { DateValueType, initFormatDate } from '../../shared/types';
-import { BaseProps } from '../../shared/types/props';
-import {
-  createProps,
-  isValidFormat,
-  onSetFormatDate,
-} from '../../shared/utils';
+import { Calendar, DateInput } from '../internal';
+import { InputInternalProps } from '../internal/input/ui/Input';
+import { useCalendarToggle, useClickOutside } from '../shared/hook';
+import { DateValueType, initFormatDate } from '../shared/types';
+import { BaseProps } from '../shared/types/props';
+import { createProps, isValidFormat, onSetFormatDate } from '../shared/utils';
 
-export interface DatePickerProps extends BaseProps {
-  /**
-   * The placeholder text for the date picker input field.
-   * This text will appear when the input field is empty.
-   * @example "Select a date"
-   */
-  placeholder?: string;
+export interface DatePickerProps
+  extends Pick<InputInternalProps, 'placeholder'>,
+    BaseProps {
   /**
    * A callback function that is triggered when the date value changes.
    * It provides the new date value and the formatted string representation.
@@ -69,7 +62,7 @@ export default function DatePicker(props: DatePickerProps) {
       restProps.onChange?.({ dateValue: new Date(formatValue), formatValue });
     } else {
       console.warn(`Invalid date format. Expected format: ${formatDate}`);
-      setFormatValue(value ? onSetFormatDate(value, formatDate) : ''); // 포맷이 틀리면 기존 값을 복구
+      setFormatValue(value ? onSetFormatDate(value, formatDate) : '');
     }
   };
 
@@ -102,7 +95,7 @@ export default function DatePicker(props: DatePickerProps) {
 
   return (
     <div className="relative" ref={calendarRef}>
-      <Input
+      <DateInput
         {...renderInputProps}
         onChange={handleChangeValue}
         onKeyDown={handleKeyDown}

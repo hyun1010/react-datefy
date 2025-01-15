@@ -10,10 +10,6 @@
         background-color: $datepicker__hover-color-light;
         color: white;
       }
-      .selected {
-        background-color: $datepicker__selected-color-light;
-        color: white;
-      }
     }
 
     .header {
@@ -25,8 +21,15 @@
     }
 
     .day-button {
+      background-color: $datepicker__background-color-light;
+      color: $datepicker__text-color-light;
+
       &:hover {
         background-color: #e5e7eb;
+      }
+      &.selected {
+        background-color: $datepicker__selected-color-light;
+        color: white;
       }
     }
   }
@@ -40,10 +43,6 @@
         background-color: $datepicker__hover-color-dark;
         color: white;
       }
-      .selected {
-        background-color: $datepicker__selected-color-dark;
-        color: white;
-      }
     }
 
     .header {
@@ -55,8 +54,15 @@
     }
 
     .day-button {
+      background-color: $datepicker__background-color-dark;
+      color: $datepicker__text-color-dark;
+
       &:hover {
         background-color: #555555;
+      }
+      &.selected {
+        background-color: $datepicker__selected-color-dark;
+        color: white;
       }
     }
   }

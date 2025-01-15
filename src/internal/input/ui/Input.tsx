@@ -1,9 +1,14 @@
-import { DatePickerProps } from '../../components/DatePicker';
-import styles from './input.module.scss';
+import { BaseProps } from '../../../shared/types/props';
+import styles from '../style/input.module.scss';
 
-interface InputInternalProps
-  extends Omit<DatePickerProps, 'value' | 'onChange'> {
+export interface InputInternalProps extends Omit<BaseProps, 'value'> {
   value: string;
+  /**
+   * The placeholder text for the date picker input field.
+   * This text will appear when the input field is empty.
+   * @example "Select a date"
+   */
+  placeholder?: string;
   onClick: () => void;
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
   onBlur?: () => void;

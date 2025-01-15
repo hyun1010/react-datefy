@@ -1,3 +1,3 @@
-export type { DateValueType, ModeType } from './shared/types';
 export { default } from './components/DatePicker';
-export { setLocale, removeLocale, getLocale } from './shared/utils/mapLocale';
+export type { DateValueType, ModeType } from './shared/types';
+export { getLocale, removeLocale, setLocale } from './shared/utils/mapLocale';
