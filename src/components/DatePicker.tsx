@@ -47,7 +47,7 @@ export default function DatePicker(props: DatePickerProps) {
 
   const renderCalendarProps = {
     mode,
-    value,
+    value: formatValue,
     formatDate,
   };
 

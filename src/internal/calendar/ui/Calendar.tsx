@@ -9,7 +9,8 @@ import styles from '../style/calendar.module.scss';
 import { CalendarDays } from './CalendarDays';
 import { CalendarHeader } from './CalendarHeader';
 
-export interface CalendarProps extends BaseProps {
+export interface CalendarProps extends Omit<BaseProps, 'value'> {
+  value: string;
   onSelect: (value: string) => void;
 }
 export default function Calendar({
