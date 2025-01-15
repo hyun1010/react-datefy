@@ -1,4 +1,4 @@
-import { DateValueType } from '../../../shared/types';
+import { DateValueType } from '../../../shared/type';
 import styles from '../style/calendar.module.scss';
 import { CalendarBaseProps } from '../type';
 

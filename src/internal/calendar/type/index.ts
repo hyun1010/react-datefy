@@ -1,5 +1,4 @@
-import { DateValueType } from '../../../shared/types';
-import { LocaleContentType } from '../../../shared/types/locale';
+import { DateValueType, LocaleContentType } from '../../../shared/type';
 
 export interface CalendarBaseProps {
   locale: LocaleContentType;

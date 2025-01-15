@@ -1,9 +1,10 @@
 import { useEffect, useState } from 'react';
-import { DateValueType } from '../../../shared/types';
-import { LocaleContentType } from '../../../shared/types/locale';
-import { BaseProps } from '../../../shared/types/props';
-import { onSetFormatDate } from '../../../shared/utils';
-import { mapLocaleData } from '../../../shared/utils/mapLocale';
+import {
+  BaseProps,
+  DateValueType,
+  LocaleContentType,
+} from '../../../shared/type';
+import { mapLocaleData, onSetFormatDate } from '../../../shared/util';
 import styles from '../style/calendar.module.scss';
 import { CalendarDays } from './CalendarDays';
 import { CalendarHeader } from './CalendarHeader';

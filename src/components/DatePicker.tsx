@@ -2,9 +2,8 @@ import { useEffect, useState } from 'react';
 import { Calendar, DateInput } from '../internal';
 import { InputInternalProps } from '../internal/input/ui/Input';
 import { useCalendarToggle, useClickOutside } from '../shared/hook';
-import { DateValueType, initFormatDate } from '../shared/types';
-import { BaseProps } from '../shared/types/props';
-import { createProps, isValidFormat, onSetFormatDate } from '../shared/utils';
+import { BaseProps, DateValueType, initFormatDate } from '../shared/type';
+import { createProps, isValidFormat, onSetFormatDate } from '../shared/util';
 
 export interface DatePickerProps
   extends Pick<InputInternalProps, 'placeholder'>,

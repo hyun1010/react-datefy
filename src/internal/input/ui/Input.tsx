@@ -1,4 +1,4 @@
-import { BaseProps } from '../../../shared/types/props';
+import { BaseProps } from '../../../shared/type';
 import styles from '../style/input.module.scss';
 
 export interface InputInternalProps extends Omit<BaseProps, 'value'> {
