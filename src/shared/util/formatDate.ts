@@ -1,4 +1,4 @@
-import { DateValueType, FormatDateType } from '../types';
+import { DateValueType, FormatDateType } from '../type';
 
 export function onSetFormatDate(
   date: DateValueType,

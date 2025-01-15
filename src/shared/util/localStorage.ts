@@ -1,5 +1,3 @@
-import { LocaleType } from '../types';
-
 /**
  * Save data to localStorage
  * @param key - The key under which the value is stored

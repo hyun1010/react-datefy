@@ -1,5 +1,4 @@
-import { initFormatDate, initMode } from '../types';
-import { BaseProps } from '../types/props';
+import { BaseProps, initFormatDate, initMode } from '../type';
 
 export function createProps<T extends BaseProps>(props: T) {
   const {

@@ -1,4 +1,4 @@
-import { initLocale, LocaleType } from '../types';
+import { initLocale, LocaleType } from '../type';
 import {
   getLocalStorage,
   removeLocalStorage,
