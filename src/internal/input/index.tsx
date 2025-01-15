@@ -1,31 +1,27 @@
-import { BaseProps } from '../../shared/types/props';
-import { setFormatDate } from '../../shared/utils';
+import { DatePickerProps } from '../../components/DatePicker';
 import styles from './input.module.scss';
 
-export interface InputProps extends BaseProps {
-  onClick?: () => void;
-  placeholder?: string;
+interface InputInternalProps
+  extends Omit<DatePickerProps, 'value' | 'onChange'> {
+  value: string;
+  onClick: () => void;
+  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  onBlur?: () => void;
+  onKeyDown?: (e: React.KeyboardEvent<HTMLInputElement>) => void;
 }
-export default function Input({
-  mode,
-  value,
-  placeholder,
-  formatDate,
-  onClick,
-}: InputProps) {
-  const inputValue = setFormatDate(value, formatDate);
 
+export default function Input(props: InputInternalProps) {
   return (
     <input
-      data-mode={mode}
-      className={styles['datepicker-input']}
       type="text"
-      defaultValue={inputValue}
-      onClick={onClick}
-      onChange={(e) => {
-        console.log(e);
-      }}
-      placeholder={placeholder || 'Select a date'}
+      className={styles['datepicker-input']}
+      data-mode={props.mode}
+      value={props.value}
+      placeholder={props.placeholder || 'Select a date'}
+      onClick={props.onClick}
+      onChange={props.onChange}
+      onBlur={props.onBlur}
+      onKeyDown={props.onKeyDown}
     />
   );
 }

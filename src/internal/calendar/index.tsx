@@ -2,8 +2,12 @@ import { useEffect, useMemo, useState } from 'react';
 import styles from './calendar.module.scss';
 import { BaseProps } from '../../shared/types/props';
 import { mapLocaleData } from '../../shared/utils/mapLocale';
+import { onSetFormatDate } from '../../shared/utils';
 
-export default function Calendar({ mode }: BaseProps) {
+interface CalendarProps extends BaseProps {
+  onSelect: (value: string) => void;
+}
+export default function Calendar(props: CalendarProps) {
   const [currentDate, setCurrentDate] = useState(new Date());
   const [locale, setLocale] = useState<{ weekdays: string[] }>({
     weekdays: [],
@@ -35,6 +39,12 @@ export default function Calendar({ mode }: BaseProps) {
     setCurrentDate(new Date(year, month + 1, 1));
   };
 
+  const handlePick = (day: number) => {
+    const selectedDate = new Date(year, month, day);
+    const formattedDate = onSetFormatDate(selectedDate, props.formatDate);
+    props.onSelect(formattedDate);
+  };
+
   useEffect(() => {
     const fetchLocaleData = async () => {
       const data = await mapLocaleData<{ weekdays: string[] }>();
@@ -45,7 +55,7 @@ export default function Calendar({ mode }: BaseProps) {
   }, []);
 
   return (
-    <div data-mode={mode} className={styles['datepicker-calendar']}>
+    <div data-mode={props.mode} className={styles['datepicker-calendar']}>
       <div className={styles['header']}>
         <button onClick={handlePrevMonth}>&lt;</button>
         <span>
@@ -65,7 +75,11 @@ export default function Calendar({ mode }: BaseProps) {
           <div key={index} className={styles['empty-day']}></div>
         ))}
         {weekDays.map((day) => (
-          <button key={day} className={styles['day-button']} onClick={() => {}}>
+          <button
+            key={day}
+            className={styles['day-button']}
+            onClick={() => handlePick(day)}
+          >
             {day}
           </button>
         ))}

@@ -4,7 +4,7 @@ import { BaseProps } from '../types/props';
 export function createProps<T extends BaseProps>(props: T) {
   const {
     mode = initMode,
-    value = new Date(),
+    value,
     formatDate = initFormatDate,
     ...restProps
   } = props;

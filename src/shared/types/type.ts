@@ -1,4 +1,4 @@
-export type DateValueType = Date | null;
+export type DateValueType = Date;
 
 const modeTypes = ['light', 'dark'] as const;
 export type ModeType = (typeof modeTypes)[number];
