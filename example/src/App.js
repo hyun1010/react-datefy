@@ -4,7 +4,7 @@ function App() {
   return (
     <div>
       <h2>Example Page</h2>
-      <DatePicker />
+      <DatePicker maxDate={new Date()} />
       <DatePicker mode="dark" />
     </div>
   );

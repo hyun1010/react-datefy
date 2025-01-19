@@ -4,9 +4,11 @@ import { InputInternalProps } from '../internal/input/ui/Input';
 import { useCalendarToggle, useClickOutside } from '../shared/hook';
 import { BaseProps, DateValueType, initFormatDate } from '../shared/type';
 import { createProps, isValidFormat, onSetFormatDate } from '../shared/util';
+import { CalendarProps } from '../internal/calendar/ui/Calendar';
 
 export interface DatePickerProps
   extends Pick<InputInternalProps, 'placeholder'>,
+    Omit<CalendarProps, 'value'>,
     BaseProps {
   /**
    * A callback function that is triggered when the date value changes.
@@ -31,6 +33,8 @@ export default function DatePicker(props: DatePickerProps) {
     mode,
     formatDate = initFormatDate,
     value,
+    minDate,
+    maxDate,
     ...restProps
   } = createProps(props);
 
@@ -49,16 +53,36 @@ export default function DatePicker(props: DatePickerProps) {
     mode,
     value: formatValue,
     formatDate,
+    minDate,
+    maxDate,
   };
 
   const handleChangeValue = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFormatValue(e.target.value);
   };
 
+  const isWithinRange = (date: Date) => {
+    if (minDate && date < new Date(minDate)) return false;
+    if (maxDate && date > new Date(maxDate)) return false;
+    return true;
+  };
+
+  const handleSetDate = () => {
+    const parsedDate = new Date(formatValue);
+    if (isWithinRange(parsedDate)) {
+      setFormatValue(formatValue);
+      restProps.onChange?.({ dateValue: parsedDate, formatValue });
+    } else {
+      console.warn(
+        `Date is out of range. Allowed range: ${minDate} - ${maxDate}`
+      );
+      setFormatValue(value ? onSetFormatDate(value, formatDate) : '');
+    }
+  };
+
   const handleValidateFormat = () => {
     if (isValidFormat(formatValue, formatDate)) {
-      setFormatValue(formatValue);
-      restProps.onChange?.({ dateValue: new Date(formatValue), formatValue });
+      handleSetDate();
     } else {
       console.warn(`Invalid date format. Expected format: ${formatDate}`);
       setFormatValue(value ? onSetFormatDate(value, formatDate) : '');

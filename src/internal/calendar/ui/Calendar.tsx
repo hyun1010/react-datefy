@@ -8,16 +8,31 @@ import { mapLocaleData, onSetFormatDate } from '../../../shared/util';
 import styles from '../style/calendar.module.scss';
 import { CalendarDays } from './CalendarDays';
 import { CalendarHeader } from './CalendarHeader';
+import { CalendarBaseProps } from '../type';
 
 export interface CalendarProps extends Omit<BaseProps, 'value'> {
   value: string;
   onSelect: (value: string) => void;
+  /**
+   * The maximum selectable date.
+   * Prevents the user from selecting a date beyond this value.
+   * @example new Date(2030, 11, 31) // December 31, 2030
+   */
+  maxDate?: DateValueType;
+  /**
+   * The minimum selectable date.
+   * Prevents the user from selecting a date earlier than this value.
+   * @example new Date(2020, 0, 1) // January 1, 2020
+   */
+  minDate?: DateValueType;
 }
 export default function Calendar({
   value,
   formatDate,
   mode,
   onSelect,
+  maxDate,
+  minDate,
 }: CalendarProps) {
   const initialDate = value ? new Date(value) : new Date();
   const [currentDate, setCurrentDate] = useState(initialDate);
@@ -29,6 +44,8 @@ export default function Calendar({
   const baseProps = {
     locale,
     currentDate,
+    maxDate,
+    minDate,
   };
 
   const handleSetCurrentDate = (value: DateValueType) => {

@@ -39,6 +39,10 @@
         background-color: $datepicker__selected-color-light;
         color: white;
       }
+      &.disabled {
+        color: $datepicker__disabled-color-light;
+        cursor: not-allowed;
+      }
     }
   }
 
@@ -79,6 +83,10 @@
       &.selected {
         background-color: $datepicker__selected-color-dark;
         color: white;
+      }
+      &.disabled {
+        color: $datepicker__disabled-color-dark;
+        cursor: not-allowed;
       }
     }
   }
