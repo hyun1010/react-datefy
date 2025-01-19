@@ -23,6 +23,14 @@
     .day-button {
       background-color: $datepicker__background-color-light;
       color: $datepicker__text-color-light;
+      width: 2rem;
+      height: 2rem;
+      border-radius: 9999px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background-color 0.2s;
+      border: none;
 
       &:hover {
         background-color: #e5e7eb;
@@ -56,6 +64,14 @@
     .day-button {
       background-color: $datepicker__background-color-dark;
       color: $datepicker__text-color-dark;
+      width: 2rem;
+      height: 2rem;
+      border-radius: 9999px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background-color 0.2s;
+      border: none;
 
       &:hover {
         background-color: #555555;
