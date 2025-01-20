@@ -1,7 +1,7 @@
 {
   "name": "react-datefy",
   "version": "1.0.0",
-  "description": "",
+  "description": "date picker library for React.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
@@ -17,8 +17,24 @@
   "files": [
     "dist"
   ],
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "react",
+    "date-picker",
+    "datepicker",
+    "react-datepicker",
+    "calendar",
+    "react-calendar",
+    "date-selection",
+    "customizable",
+    "lightweight",
+    "date-component"
+  ],
+  "author": "ChaeHyun Kim <rcohyun1010@gmail.com> (https://github.com/hyun1010)",
+  "homepage": "https://github.com/hyun1010/react-datefy",
+  "bugs": {
+    "url": "https://github.com/hyun1010/react-datefy/issues",
+    "email": "rcohyun1010@gmail.com"
+  },
   "license": "MIT",
   "peerDependencies": {
     "commander": "^13.0.0",
