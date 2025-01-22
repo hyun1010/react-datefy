@@ -40,25 +40,26 @@ export default function DatePicker(props: DatePickerProps) {
 
   const { isOpen, onToggleCalendar, onCloseCalendar } = useCalendarToggle();
   const calendarRef = useClickOutside(onCloseCalendar);
+  const [inputValue, setInputValue] = useState<string>('');
   const [formatValue, setFormatValue] = useState<string>('');
 
   const renderInputProps = {
     ...restProps,
     mode,
-    value: formatValue,
+    value: inputValue,
     onClick: onToggleCalendar,
   };
 
   const renderCalendarProps = {
     mode,
-    value: formatValue,
+    value: formatValue ? new Date(formatValue) : new Date(),
     formatDate,
     minDate,
     maxDate,
   };
 
   const handleChangeValue = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setFormatValue(e.target.value);
+    setInputValue(e.target.value);
   };
 
   const isWithinRange = (date: Date) => {
@@ -68,10 +69,10 @@ export default function DatePicker(props: DatePickerProps) {
   };
 
   const handleSetDate = () => {
-    const parsedDate = new Date(formatValue);
+    const parsedDate = new Date(inputValue);
     if (isWithinRange(parsedDate)) {
-      setFormatValue(formatValue);
-      restProps.onChange?.({ dateValue: parsedDate, formatValue });
+      setFormatValue(inputValue);
+      restProps.onChange?.({ dateValue: parsedDate, formatValue: inputValue });
     } else {
       console.warn(
         `Date is out of range. Allowed range: ${minDate} - ${maxDate}`
@@ -81,7 +82,7 @@ export default function DatePicker(props: DatePickerProps) {
   };
 
   const handleValidateFormat = () => {
-    if (isValidFormat(formatValue, formatDate)) {
+    if (isValidFormat(inputValue, formatDate)) {
       handleSetDate();
     } else {
       console.warn(`Invalid date format. Expected format: ${formatDate}`);
@@ -94,6 +95,7 @@ export default function DatePicker(props: DatePickerProps) {
   };
 
   const handleSelect = (value: string) => {
+    setInputValue(value);
     setFormatValue(value);
     restProps.onChange?.({
       dateValue: new Date(value),
@@ -112,6 +114,7 @@ export default function DatePicker(props: DatePickerProps) {
   useEffect(() => {
     if (value) {
       const formattedValue = onSetFormatDate(value, formatDate);
+      setInputValue(formattedValue);
       setFormatValue(formattedValue);
     }
   }, [value]);

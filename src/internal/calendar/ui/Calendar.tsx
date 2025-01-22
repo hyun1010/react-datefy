@@ -11,7 +11,7 @@ import { CalendarHeader } from './CalendarHeader';
 import { CalendarBaseProps } from '../type';
 
 export interface CalendarProps extends Omit<BaseProps, 'value'> {
-  value: string;
+  value: DateValueType;
   onSelect: (value: string) => void;
   /**
    * The maximum selectable date.
@@ -34,8 +34,7 @@ export default function Calendar({
   maxDate,
   minDate,
 }: CalendarProps) {
-  const initialDate = value ? new Date(value) : new Date();
-  const [currentDate, setCurrentDate] = useState(initialDate);
+  const [currentDate, setCurrentDate] = useState(value);
   const [locale, setLocale] = useState<LocaleContentType>({
     weekdays: [],
     monthNames: [],
